@@ -3,7 +3,8 @@ import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
 # Read the Excel file into a DataFrame
-df = pd.read_excel("C:\\Users\\pbesser\\Downloads\\Stage gates cleaned data.xlsx")
+#df = pd.read_excel("C:\\Users\\pbesser\\Downloads\\Stage gates cleaned data.xlsx")
+df = pd.read_excel("C:\\Users\\mdas\\Documents\\PythonProject\\StageGateTracker\\Stage gates cleaned data.xlsx")
 
 # create data
 x = pd.to_datetime(df['Proposed Sub Date '])
@@ -19,10 +20,16 @@ q=[1672531200000000000,max(xnum+ynum)]
 scatter_data = go.Scatter(x=x, y=y, mode='markers', marker=dict(color='DarkSlateGrey'))
 fig = go.Figure()
 fig.add_trace(
-    go.Scatter(x=x, y=x, name = "line", marker=dict(color='Red'))
+    go.Scatter(x=x, y=x, name = "line", marker=dict(color='Red'),hoverinfo='none')
 )
 fig.add_trace(
-    go.Scatter(x=x, y=y, mode='markers', marker=dict(color='DarkSlateGrey'))
+    go.Scatter(
+        x=x, 
+        y=y, 
+        mode='markers', 
+        marker=dict(color='DarkSlateGrey'), 
+        hovertext= df['Title'] + "<br>" + df['Submittal Number'],
+        hovertemplate='<b>%{hovertext}</b><extra></extra>')
 )
 fig1 = px.scatter(df,x=x,y=y)
 fig1 = go.Figure(data=scatter_data)
