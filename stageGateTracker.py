@@ -5,8 +5,8 @@ import plotly.graph_objects as go
 import webbrowser
 
 # Read the Excel file into a DataFrame
-#df = pd.read_excel("C:\\Users\\pbesser\\Downloads\\Stage gates cleaned data.xlsx")
-df = pd.read_excel("C:\\Users\\mdas\\Documents\\PythonProject\\StageGateTracker\\Stage gates cleaned data.xlsx")
+df = pd.read_excel("C:\\Users\\pbesser\\Downloads\\Stage gates cleaned data.xlsx")
+#df = pd.read_excel("C:\\Users\\mdas\\Documents\\PythonProject\\StageGateTracker\\Stage gates cleaned data.xlsx")
 
 dft = pd.DataFrame({
     'x': pd.to_datetime(['2021-01-01','2026-07-10']),
@@ -215,8 +215,8 @@ custom_html_end = """
 """
 
 #pio.write_html(fig, file="StageGateTracker.html", auto_open=True, include_plotlyjs=False, config={"displayModeBar": False, "scrollZoom": False})
-filename = "C:\\Users\\mdas\\Documents\\PythonProject\\StageGateTracker\\StageGateTracker.html"  # Modify the filename as needed
-#filename = "C:\\Users\\pbesser\\Downloads\\StageGateTracker.html"
+#filename = "C:\\Users\\mdas\\Documents\\PythonProject\\StageGateTracker\\StageGateTracker.html"  # Modify the filename as needed
+filename = "C:\\Users\\pbesser\\Downloads\\StageGateTracker.html"
 with open(filename, "w", encoding="utf-8") as file:
     file.write(custom_html_start)
     file.write(fig.to_html(full_html=False, include_plotlyjs=True))
