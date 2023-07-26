@@ -45,4 +45,4 @@ python script.py
 
 The script will generate an HTML file named `StageGateTracker.html` that visualizes the submittal data. The plot displays the due date against the actual submission date, with late submissions highlighted in red.
 
-
+![](https://github.com/Sadkoi/Stage-Gate_Tracker/blob/main/SGTPreview.PNG)
