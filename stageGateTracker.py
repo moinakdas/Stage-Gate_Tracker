@@ -1,7 +1,5 @@
-import plotly.express as px
 import pandas as pd
 import plotly.graph_objects as go
-import numpy as np
 from datetime import timedelta
 import plotly.graph_objects as go
 
@@ -69,7 +67,42 @@ custom_html_start = """
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,200,0,0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+<script>
+    $(document).ready(function(){
+        console.log("through");
+        window.onresize = responsiveDisp;
+        if(window.innerWidth <= 1200){
+            cellResponse();
+            console.log("sound");
+        }else{
+            computerResponse();
+        }
+    
+        function responsiveDisp(){
+            if (window.innerWidth <= 850) {
+                cellResponse();
+            }else{
+                computerResponse();
+            }
+        }
+
+        function cellResponse(){
+            $("#plot").css("width","96vw");
+            $("#infoPanel").css({"top":"800px","left":"2vw","width":"96vw","font-size":"20px"});
+            $("h1").css("font-size","30px");
+            $("#headerText").css("font-size","7vw");
+        }
+
+        function computerResponse(){
+            $("#plot").css("width","65vw");
+            $("#infoPanel").css({"top":"11vw","left":"65vw","width":"30vw","font-size":"0.9vw"});
+            $("h1").css("font-size","1.5vw");
+            $("#headerText").css("font-size","3.2vw");
+        }
+    });
+</script>
 <style>
     h1{
         display: inline;
@@ -159,9 +192,9 @@ custom_html_start = """
 <div id = "lateholder">
 </div>
 <div id = "infoPanel">
-    <div id = "icons" style="flex: 0.2;text-align: center;padding-top:0.1vw;line-height: 40px;">
-        <span class="material-symbols-outlined" style = "color:#00d100;margin-bottom:1.1vw;margin-top:0.5vw;">done_all</span>
-        <span class="material-symbols-outlined" style = "color:#e80000;margin-bottom:1.3vw;">clock_loader_90</span>
+    <div id = "icons" style="flex: 0.2;text-align: center;padding-top:0.1vw;line-height: 45px;">
+        <span class="material-symbols-outlined" style = "color:#00d100;">done_all</span><br>
+        <span class="material-symbols-outlined" style = "color:#e80000;">clock_loader_90</span><br>
         <span class="material-symbols-outlined" style = "color:#e8e800;">warning</span>
     </div>
     <div id = "text" style="flex: 2;">
