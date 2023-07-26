@@ -2,8 +2,8 @@ import pandas as pd
 import plotly.graph_objects as go
 from datetime import timedelta
 import plotly.graph_objects as go
-
 import webbrowser
+
 # Read the Excel file into a DataFrame
 #df = pd.read_excel("C:\\Users\\pbesser\\Downloads\\Stage gates cleaned data.xlsx")
 df = pd.read_excel("C:\\Users\\mdas\\Documents\\PythonProject\\StageGateTracker\\Stage gates cleaned data.xlsx")
@@ -37,8 +37,8 @@ fig.update_layout(
     yaxis_title="Submission Date",
     template="plotly_dark",
     showlegend=False,
-    xaxis=dict(range=[min(x) - timedelta(days = 10), max(x) + timedelta(days = 10)]),
-    yaxis=dict(range=[min(y) -  timedelta(days = 10), max(y) + timedelta(days = 10)]),
+    xaxis=dict(range=[min(x) - timedelta(days = 60), max(x) + timedelta(days = 60)]),
+    yaxis=dict(range=[min(y) -  timedelta(days = 60), max(y) + timedelta(days = 60)]),
     uirevision='graph',
 )
 
