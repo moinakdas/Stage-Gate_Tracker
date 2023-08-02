@@ -38,7 +38,7 @@ filename = "path/to/your/StageGateTracker.html"
 4. Run the script:
 
 ```python
-python script.py
+python stageGateTracker.py
 ```
 
 ## Output
